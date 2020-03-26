@@ -124,9 +124,9 @@ if __name__ == "__main__":
 
     game = Game()
     game.create_dice()
-    # game.roll()
+    game.roll()
 
-    bb = BoggleBot(game.board, dict)
+    bb = BoggleBot(game.board, diction)
     bb.search_for_words()
     print(RESULTS)
     end_time = datetime.datetime.now()
