@@ -63,13 +63,13 @@ class BoggleBot:
         self.dictionary = dictionary
 
     def is_in_dict(self, word_in_dict):
-        letter = word_in_dict[0]
-        if word_in_dict in getattr(self.dictionary, letter):
+        start_letter = word_in_dict[0]
+        if word_in_dict in getattr(self.dictionary, start_letter):
             return True
 
     def words_start_with(self, w):
-        letter = w[0]
-        if len(list(filter(lambda x: x.startswith(w), getattr(self.dictionary, letter)))):
+        start_letter = w[0]
+        if len(list(filter(lambda x: x.startswith(w), getattr(self.dictionary, start_letter)))):
             return True
         else:
             return False
@@ -114,14 +114,13 @@ class BoggleBot:
 if __name__ == "__main__":
     start_time = datetime.datetime.now()
 
-    dict = Dictionary()
+    diction = Dictionary()
     for i in range(0, 26):
         letter = string.ascii_uppercase[i]
         print(letter)
         new_list = [x for x in DICTIONARY if x.startswith(letter)]
 
-        setattr(dict, letter, new_list)
-
+        setattr(diction, letter, new_list)
 
     game = Game()
     game.create_dice()
